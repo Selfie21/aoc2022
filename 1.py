@@ -1,14 +1,18 @@
 p1 = None
 p2 = None
-
-#file = open("1.in", "r")
-#lines = file.read().splitlines()
-#lines = [int(line) for line in lines]
+aggr = 0
+new = []
 
 for line in open('1.in', "r"):
     line = line.strip()
-    print(line)
+    if line == '':
+        new.append(aggr)
+        aggr = 0
+    else:
+        aggr += int(line)
 
-
+p1 = max(new)
+new.sort()
+p2 = new[-1] + new[-2] + new[-3]
 print(p1)
 print(p2)
